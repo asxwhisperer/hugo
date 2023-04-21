@@ -1,0 +1,10 @@
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    <h3><a class="spon" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ partial "metadata.html" . }}
+    <a class="spon-link" href="{{ .RelPermalink }}">
+        <p>{{ .Summary }}</p>
+    </a>
+    <a href="{{ .NextInSection }}">{{ .Title }}</a>
+</p>
+{{ end }}

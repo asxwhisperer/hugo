@@ -1,0 +1,35 @@
+{{ define "main" }}
+{{ if isset .Params "image" }}
+  <header
+    class="intro-header"
+    style="background-image: url('{{ .Site.BaseURL }}/{{ .Params.image }}')"
+  >
+{{ else }}
+  <header
+    class="intro-header"
+    style="background-image: url('{{ .Site.BaseURL }}{{ .Site.Params.defaultHeaderImage }}')"
+  >
+{{ end }}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ .Content }}
+                {{ range (.Site.RegularPages.GroupByDate "January 2006")  }}
+                    {{ if (where .Pages "Section" "posts") }}
+                        <h2>{{ .Key }}</h2>
+                        <ul class="list-group striped-list">
+                            {{ range ((where .Pages "Section" "posts")) }}
+                                <li class="list-group-item">
+                                    <a href="{{ .RelPermalink }}">
+                                    {{ .PublishDate.Format "Jan 02" }} : {{ .Title }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}

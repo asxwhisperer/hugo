@@ -1,0 +1,36 @@
+<!-- Code starts here -->
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+{{ $.Scratch.Set "dot_rendered" false }}
+
+<div class="pagination">
+    <div class="pagination-items">
+        <!-- Don't show on 1st and 2nd page -->
+        {{ if $pag.HasPrev  }}
+        <a href="{{ $pag.Prev.URL }}" rel="prev" class="pagination-item newer">&lt;&lt;&lt; &lt;NEW&gt;</a>
+        {{ else }}
+        <span class="pagination-item newer">&lt;&lt;&lt; &lt;NEW&gt;</span>
+        {{ end }}
+    
+        {{ range $pag.Pagers }}
+            {{ if eq . $pag }} <!-- Current Page -->
+            <a href="{{ .URL }}" class="page-number">&lt;{{ .PageNumber }}&gt;</a>
+            {{ else if and (ge .PageNumber (sub $pag.PageNumber 0)) (le .PageNumber (add $pag.PageNumber 0)) }}
+            {{ $.Scratch.Set "dot_rendered" false }} <!-- Render prev 2 page and next 2 pages -->
+            <li class="page-item"><a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a></li>
+            {{ else if eq ($.Scratch.Get "dot_rendered") false }} <!-- render skip pages -->
+            {{ $.Scratch.Set "dot_rendered" true }}
+            {{ end }}
+        {{ end }}
+    
+        {{ if $pag.HasNext }}
+        <a href="{{ $pag.Next.URL }}" rel="next" class="pagination-item older">&lt;OLD&gt; &gt;&gt;&gt;</a>
+        {{ else }}
+        <span class="pagination-item older">&lt;OLD&gt; &gt;&gt;&gt;</span>
+        {{ end }}
+    </div>
+
+</div>
+
+{{ end }}
+<!-- Code ends here -->

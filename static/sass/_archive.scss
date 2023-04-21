@@ -1,0 +1,32 @@
+.archive {
+  list-style: none;
+  padding: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  .archive-posts {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.archive-posts {
+  // padding-left: 2rem;
+  // padding-right: 2rem;
+}
+
+.archive-nav {
+  padding-left: 2rem;
+}
+
+.archive-nav hr {
+  margin-left: -2rem;
+}
+
+.archive-nav p {
+  margin-top: 1rem;
+}
+
+.archive-header {
+  margin-left: -2rem;  
+}

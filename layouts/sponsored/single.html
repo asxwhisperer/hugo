@@ -1,0 +1,88 @@
+{{ define "main" }}
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<main>
+  <article class="post spon" style="margin-top: 30px;">
+    <h1 class="post-title">
+      <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;SPON&gt;</a>
+      <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
+    </h1>
+    {{ partial "metadata.html" . }}
+    <br><br>
+    {{ .Content }}
+    <hr>
+      <!-- TradingView Widget BEGIN -->
+      <div class="post-widget-container">
+        <a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);" class="widget-link"><span>View full chart on</span><img src="/content/tradingview.svg"><span>Save $30 on a Pro or Premium TradingView account</span></a>
+        
+        {{ if .Page.Params.ticker }}
+          {{  $ticker := .Page.Params.ticker }}
+        {{ end }}
+        
+        
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+        "symbol": "{{ $ticker := .Page.Params.ticker }}",
+        "width": "100%",
+        "height": "100%",
+        "locale": "en",
+        "dateRange": "1D",
+        "colorTheme": "dark",
+        "trendLineColor": "rgba(252, 157, 15, 1)",
+        "underLineColor": "rgba(252, 157, 15, 0.5)",
+        "underLineBottomColor": "rgba(252, 157, 15, 0)",
+        "isTransparent": true,
+        "autosize": true,
+        "largeChartUrl": "http://hello.com"
+      }
+        </script>
+      </div>
+      </div>
+      <!-- TradingView Widget END -->
+      <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
+    <hr>
+    <aside class="related" style="color: #FC9D0D !important;">
+      {{ range $name, $taxonomy := .Site.Taxonomies.year  }}
+              <h3 id="">Recent Posts</a></h2>
+              <ul class="related-posts">
+                  {{ range first 3 .Pages }}
+                  <li class="archive-posts">
+                    <h4 class="linked" style="color: #FC9D0D !important;">
+                      <a style="color: #FC9D0D !important;" href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+                      <a style="color: #FC9D0D !important;" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                      <a class="post-date" href="{{ .RelPermalink }}">
+                        <small>
+                          <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+                        </small>
+                      </a>
+                    </h4>
+                  </li>
+                  {{ end }}
+              </ul>
+      {{- end -}}
+    </ul>
+    <hr>
+    <h1 class=""><a href="/subscribe" style="color: #FC9D0D !important;">Subscribe to the newsletter</a></h1>
+
+    <p style="color: #ccc;">Receive whispers every day in your inbox.</p>
+
+    <!-- <p class="label">Enter email</p> -->
+
+    <form
+      action="https://buttondown.email/api/emails/embed-subscribe/asxwhisperer"
+      method="post"
+      target="popupwindow"
+      onsubmit="fathom.trackGoal('Y92MOTZX', 0);window.open('https://buttondown.email/asxwhisperer', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+    <!--   <label for="bd-email">Enter email: </label> -->
+    <!--   <input type="label" value="Enter email:"/> -->
+      <input type="email" name="email" id="bd-email" placeholder="<ENTER EMAIL>"/>
+      <input type="submit" value="<SUBSCRIBE>" />
+    </form>
+
+  </article>
+</main>
+{{ end }}

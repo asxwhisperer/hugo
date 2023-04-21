@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<h1>Archives</h1>
+{{ .Content }}
+<nav class="archive-nav">
+    <p>
+        <strong>
+            <a href="#2022">2022</a>
+        </strong>
+    </p>
+</nav>
+<hr>
+<ul class="archives-list">
+	{{ range $name, $taxonomy := .Site.Taxonomies.year }} {{- $cnt := .Count -}}
+    {{- with $.Site.GetPage (printf "%s" $name) -}}
+          <h2 id="{{ $name }}"><a href="/2022/">{{ $name }}</a> <a href="#top">&#8599;</a></h2>
+          <ul class="related-posts">
+              {{ range .Pages }}
+              <li class="archive-posts">
+                <h4 class="linked">
+                  <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  <a class="post-date" href="{{ .RelPermalink }}">
+                    <small>
+                      <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+                    </small>
+                  </a>
+                </h4>
+              </li>
+              {{ end }}
+          </ul>
+	  {{ end }}
+	{{- end -}}
+</ul>
+
+{{ end }}

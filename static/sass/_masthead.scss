@@ -1,0 +1,339 @@
+// Masthead
+//
+// Super small header above the content for site name and short description.
+
+.banner {
+  height: 28px;
+  background: black;
+  z-index: 99; 
+  // border-bottom: 1px solid $grey-medium; 
+  border-bottom: 1px solid #333; 
+  position: fixed; 
+  top: $border-size;
+  left: $border-size;
+  width: calc(100% - 1.5rem);
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(100% - 1rem);
+  }
+}
+
+.banner-link {
+  padding-left: auto;
+  margin-right: auto;
+  // display: flex;
+}
+
+.banner-link a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  text-align: center;
+  padding-top: 0.2rem;
+  // font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.banner-link span, .banner-link img {
+  // float: left;
+  display: none;
+  vertical-align: top;
+}
+
+.banner-link img {
+  height: 1.25rem;
+  margin-top: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.banner-link a:hover {
+  background: rgba(2, 157, 6, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  span, img {
+    display: inline-block;  
+  }
+}
+
+.banner-link a:hover:after {
+  // content: "Save $30 on a Pro or Premium" url('content/tradingview.svg') "account";
+}
+
+.hide-tradingview-logo {
+  width: calc(100% + 35px);
+}
+
+.spon-banner-wrapper {
+  // width: $ad-big-width;
+  // height: $ad-big-height;
+  width: 728px;
+  height: 117px;
+  margin-left: auto;
+  margin-right: auto;
+  // margin-bottom: 2rem;
+  position: relative;
+  outline: 1px solid $green;
+  margin-top: 2rem;
+}
+
+.spon-banner-header {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 99;
+  font-size: 20px;
+  margin: 0;
+}
+
+.adsense-responsive {
+  width: 728px;
+  height: 90px;
+}
+
+@media only screen and (max-width: 768px) {
+  .spon-banner-wrapper {
+    width: $ad-small-width;
+    // height: $ad-small-height;
+    // max-height: 100px;
+    height: auto;
+    margin-top: 4rem;
+  }
+  
+  .adsense-responsive {
+    max-height: 100px;
+    width: 320px;
+  }
+  
+  .banner-link {
+    font-size: 0.75rem;
+    img {
+      height: 1rem;
+      margin-top: 0.3rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+    span {
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.spon-banner {
+  text-align: center;
+  width: 100%; 
+  height: 100%; 
+  border: 0; 
+  outline: 1px solid #029D06; 
+  padding:0; 
+  overflow: hidden; 
+  background-color: transparent; 
+}
+
+.banner p {
+  margin-top: -28px;
+  width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.masthead {
+  // padding-top:    1rem;
+  // padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  // background: $red;
+  // background: linear-gradient($light-red, $red);
+  // border-top: 1px solid $grey-light;
+  
+  margin-top: $border-size;
+//  display: block;
+}
+
+// .masthead-title {
+//   margin-top: 0;
+//   margin-bottom: 0;
+//   width: 100%;
+//   height: 27px;
+// }
+
+.left, .right {
+  height: 27px;
+  min-height: 27px;
+}
+
+
+.right {
+  border-right: 1px solid black;
+  display: inline-block;
+  // background: $red;
+  // color: white;
+  a {
+    color: white;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    height: 27px;
+  }
+  a:hover {
+    background: $amber;
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.first {
+  border-left: 1px solid black;
+}
+
+#date {
+  background: black;
+}
+
+#top-level, .date-nav {
+    text-align: right;
+    height: 27px;
+}
+
+#top-level {
+  background: linear-gradient($light-red, $red);
+  font-size: 1.25rem;
+}
+
+.date-nav {
+  text-align: left;
+  color: white;
+  height: 28px;
+}
+
+.date-nav time {
+  vertical-align: middle;
+  padding-left: 1rem;
+}
+
+.date-nav time a {
+  color: white;
+  display: inline-block;
+  height: 28px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+// .date-nav time a:hover {
+//   background: $amber;
+//   color: black;
+// }
+
+#top-level ul, .date-nav {
+  // max-width: 45rem;
+  max-width: 728px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#top-level ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    overflow: hidden;
+    font-size: 0;
+    // max-width: 45rem;
+    max-width: 728px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient($light-red, $red);
+}
+
+#top-level ul li {
+    // display: inline;
+}
+
+#top-level ul li a {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  height: 100%;
+}
+
+.left {
+    float: left;
+    background: $amber;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    a {
+      color: black;
+      vertical-align: middle;
+      padding-left: 1rem;
+      padding-right: 1rem;      
+    }
+
+//    width: 49%;
+//    font-weight: bold;
+//    color: $gray-4;
+}
+
+.left img, .left span {
+  display: inline;
+  float: left;
+}
+
+.left img {
+  height: 24px;
+  padding-right: 0.5rem;
+  // padding-left: 0.5rem;
+  padding-top: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+  .left {
+    width: 100%;
+    text-align: left;
+    border: 0;
+  }
+  
+  .right a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  #top-level ul li.right a {
+    font-size: 1rem;
+    padding-top: 0.15rem;
+    
+  }
+  
+  #top-level ul {
+    background: linear-gradient($light-red 50%, $red);
+  }
+  
+  #top-level {
+    text-align: center;
+  }
+  
+  // .right:last-child {
+  //   border: 0;
+  // }
+  
+  .masthead {
+    margin-bottom: calc(2rem + 27px);
+  }
+  
+  .date-nav time {
+    padding-left: 1rem;
+    vertical-align: baseline;
+  }
+}
+
+.left a:hover {
+  background: $light-amber;
+  color: white;
+  img {
+    // content: url("/content/logo-white.png");
+    filter: invert(100%) sepia(100%) saturate(22%) hue-rotate(344deg) brightness(105%) contrast(108%);
+  }
+}

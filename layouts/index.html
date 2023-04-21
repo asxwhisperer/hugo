@@ -1,0 +1,37 @@
+
+{{ define "main" }}
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<main id="" class="" style="margin-top: 30px;">
+  <article class="page">
+      <center><img class="title-logo" src="/content/logo.svg">
+      <h1 class="page-title" style="margin-bottom: 1rem;"><a href="/">&lt;{{ .Title }}&gt;</a></h1>
+      </center>
+      <p>The Director's Commentary of the ASX</p>
+  
+      <p>I work in finance, my job requires me to read all the ASX announcements that come out each day. I pick out the most interesting, the most talked about, and the most impactful announcements that move the market.</p>
+      
+      <p>I stay updated, so you don't have to.</p>
+      <hr>
+      {{ partial "subscribe.html" }}
+      <hr>
+  </article>  
+  <div class="posts">
+    {{ $paginator := .Paginate .Site.RegularPages }}
+    {{ range $paginator.Pages }}
+    <article class="post linked">
+        <h1 class="post-title">
+          <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+          <a href="{{ .RelPermalink }}" class="linked-title">{{ .Title }}</a>
+        </h1>
+        <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
+        <a class="spon-link" href="{{ .RelPermalink }}">
+            <p>{{ .Content }}</p>
+        </a>
+    </article>
+    <hr>
+    {{ end }}
+    {{ partial "pagination" . }}
+  </div>
+</main>
+{{ end }}
