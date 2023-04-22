@@ -21,13 +21,11 @@
     {{ range $paginator.Pages }}
     <article class="post linked">
         <h1 class="post-title">
-          <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
           <a href="{{ .RelPermalink }}" class="linked-title">{{ .Title }}</a>
         </h1>
         <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
-        <a class="spon-link" href="{{ .RelPermalink }}">
-            <p>{{ .Content }}</p>
-        </a>
+        <p>{{ .Content }}</p>
     </article>
     <hr>
     {{ end }}

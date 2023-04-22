@@ -7,25 +7,34 @@
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
             {
-            symbols: [
+            "symbols": [
               {
-                "description": "S&P/ASX 200",
+                "title": "S&P/ASX 200",
                 "proName": "ASX:XJO"
               },
               {
-                "description": "All Ordinaries",
+                "title": "All Ordinaries",
                 "proName": "INDEX:AORD"
-              },{{ $ticker := .Site.RegularPages | first 10 }},
+              },
+              {{ range first 10 .Site.RegularPages }}
+                {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
+                {{  if eq (len $ticker) 7 }}
+                  {
+                    "title": "{{ $ticker }}",
+                    "proName": "{{ $ticker }}"
+                  },
+                {{ end }}
+              {{ end }}
               {
                 "proName": "FX:AUDUSD",
-                "description": "AUD/USD"
+                "title": "AUD/USD"
               },
               {
-                "description": "Bitcoin/USD",
+                "title": "Bitcoin/USD",
                 "proName": "BITSTAMP:BTCUSD"
               },
               {
-                "description": "Gold/USD",
+                "title": "Gold/USD",
                 "proName": "OANDA:XAUUSD"
               }
             ],
@@ -33,7 +42,6 @@
             "colorTheme": "dark",
             "isTransparent": true,
             "displayMode": "regular",
-            "largeChartUrl": "http://127.0.0.1:4000/archive/tag/{symbolname}",
             "locale": "en"
           }
         </script>

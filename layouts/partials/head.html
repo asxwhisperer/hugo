@@ -7,7 +7,9 @@
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
   
     
     <link rel="apple-touch-icon" sizes="180x180" href="/content/favicons/apple-touch-icon.png">
@@ -28,7 +30,7 @@
     <style>
         @font-face {
             font-family: "Bloomberg Prop Unicode N";
-            src: url('https://asxwhisperer.com/content/fonts/Bloomberg-PropU_N.ttf');
+            src: url('/content/fonts/Bloomberg-PropU_N.ttf');
         }
         html{
             font-family: "Bloomberg Prop Unicode N", Verdana, Arial, sans-serif;
