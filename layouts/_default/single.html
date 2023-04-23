@@ -2,7 +2,13 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 <main>
-  <article class="post linked" style="margin-top: 30px;">
+  {{ if eq .Type "linked" }}
+    <article class="post linked" style="margin-top: 30px;">
+  {{ else if eq .Type "sponsored" }}
+    <article class="post spon" style="margin-top: 30px;">
+  {{ else if eq .Type "whisper" }}
+    <article class="post whisperer" style="margin-top: 30px;">
+  {{ end }}
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
       <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
@@ -10,6 +16,8 @@
     {{ partial "metadata.html" . }}
     <br><br>
     {{ .Content }}
+    
+    {{ .Type }}
             
     <hr>
       <!-- TradingView Widget BEGIN -->
@@ -18,8 +26,8 @@
         
       {{ $widgetTicker := "ASX:XJO" }}
       {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
-      {{  if eq (len $ticker) 7 }} 
-        {{ $widgetTicker := $ticker }}
+      {{  if eq (strings.RuneCount $ticker) 7 }}
+        {{ $widgetTicker = $ticker }}
       {{ end }}
         
       <div class="tradingview-widget-container">
