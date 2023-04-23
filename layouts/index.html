@@ -19,9 +19,21 @@
   <div class="posts">
     {{ $paginator := .Paginate .Site.RegularPages }}
     {{ range $paginator.Pages }}
-    <article class="post linked">
-        <h1 class="post-title">
-          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+    
+    {{ if in .Params.categories "linked" }}
+      <article class="post linked">
+      <h1 class="post-title">
+        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+    {{ else if in .Params.categories "sponsored" }}
+      <article class="post spon">
+      <h1 class="post-title">
+        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
+    {{ else }}
+      <article class="post whisperer">
+      <h1 class="post-title">
+        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">&lt;WHISP&gt;</a>
+    {{ end }}
+
           <a href="{{ .RelPermalink }}" class="linked-title">{{ .Title }}</a>
         </h1>
         <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
