@@ -2,11 +2,11 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 <main>
-  {{ if eq .Type "linked" }}
+  {{ if in .Params.categories "linked" }}
     <article class="post linked" style="margin-top: 30px;">
-  {{ else if eq .Type "sponsored" }}
+  {{ else if in .Params.categories "sponsored" }}
     <article class="post spon" style="margin-top: 30px;">
-  {{ else if eq .Type "whisper" }}
+  {{ else if in .Params.categories "whisper" }}
     <article class="post whisperer" style="margin-top: 30px;">
   {{ end }}
     <h1 class="post-title">
@@ -16,10 +16,6 @@
     {{ partial "metadata.html" . }}
     <br><br>
     {{ .Content }}
-    
-    {{ .Type }}
-    
-    {{ .Kind }}
             
     <hr>
       <!-- TradingView Widget BEGIN -->
