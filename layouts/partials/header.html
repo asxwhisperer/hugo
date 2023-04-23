@@ -16,7 +16,7 @@
                 "title": "All Ordinaries",
                 "proName": "INDEX:AORD"
               },
-              {{ range first 10 .Site.RegularPages }}
+              {{ range first 10 (where .Site.RegularPages "Type" "post") }}
                 {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
                 {{  if eq (len $ticker) 7 }}
                   {

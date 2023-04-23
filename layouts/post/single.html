@@ -56,10 +56,10 @@
       <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
     <hr>
     <ul class="archives-list">
-      {{ range $name, $taxonomy := .Site.Taxonomies.year  }}
+<!--       {{ range $name, $taxonomy := .Site.Taxonomies.year  }} -->
               <h3 id="">Recent Posts</a></h2>
               <ul class="related-posts">
-                  {{ range first 3 .Pages }}
+                  {{ range first 3 (where .Site.RegularPages "Type" "post") }}
                   <li class="archive-posts">
                     <h4 class="linked">
                       <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
@@ -73,7 +73,7 @@
                   </li>
                   {{ end }}
               </ul>
-      {{- end -}}
+<!--       {{- end -}} -->
     </ul>
     <hr>
     {{ range $name, $taxonomy := .Site.Taxonomies.category.linked }}
