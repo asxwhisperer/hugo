@@ -17,7 +17,8 @@
       <hr>
   </article>  
   <div class="posts">
-    {{ $paginator := .Paginate .Site.RegularPages }}
+<!--     {{ $paginator := .Paginate .Site.RegularPages }} -->
+    {{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
     {{ range $paginator.Pages }}
     
     {{ if in .Params.categories "linked" }}
