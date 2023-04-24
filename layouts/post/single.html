@@ -20,17 +20,18 @@
     {{ partial "metadata.html" . }}
     <br><br>
     {{ .Content }}
-            
     <hr>
       <!-- TradingView Widget BEGIN -->
       <div class="post-widget-container">
         <a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);" class="widget-link"><span>View full chart on</span><img src="/content/tradingview.svg"><span>Save $30 on a Pro or Premium TradingView account</span></a>
         
       {{ $widgetTicker := "ASX:XJO" }}
-      {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
-      {{  if eq (strings.RuneCount $ticker) 7 }}
+<!--       {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }} -->
+      {{ $tickerMatch := fineRE `\\(([^)]*:.*?)\\)` .Title }}
+      {{ $ticker := index $tickerMatch 1 }}
+<!--       {{  if eq (strings.RuneCount $ticker) 7 }} -->
         {{ $widgetTicker = $ticker }}
-      {{ end }}
+<!--       {{ end }} -->
         
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
@@ -54,11 +55,11 @@
       </div>
       <!-- TradingView Widget END -->
       <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
+      
     </article>
     
     <hr>
     
-<!--     <ul class="archives-list"> -->
       <aside class="related">
       <h3 id="">Recent Posts</a></h3>
       <ul class="related-posts">
@@ -103,9 +104,7 @@
         {{ end }}
       {{ end }}
       </ul>
-<!--     </ul> -->
       </aside>
-    <hr>
     
     <h3>Sponsored by</h3>
     {{ $posts := where site.RegularPages "Type" "post" }}
