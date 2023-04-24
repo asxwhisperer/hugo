@@ -108,7 +108,12 @@
     <hr>
     
     <h3>Sponsored by</h3>
-    {{ $spon := first 1 (where in .Site.RegularPages .Params.categories "sponsored") }}
+    {{ $posts := where site.RegularPages "Type" "post" }}
+    {{ $posts = where $posts ".Params.categories" "intersect" (slice "sponsored") }}
+    
+      {{ range $spon := first 1 $posts }}
+          {{ $spon.Title }}
+      
     <article class="post spon" style="margin-top: 30px;">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` $spon.RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
@@ -118,6 +123,8 @@
     {{ partial "metadata.html" . }}
     <br><br>
     {{ $spon.Content }}
+    
+    {{ end }}
   </article>
 </main>
 {{ end }}
