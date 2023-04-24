@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Monday, 2 Jan, 2006" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Monday, 2 January 2006" }}
 <main id="" class="" style="margin-top: 30px;">
   <article class="page">
     <center><img class="title-logo" src="/content/logo.svg">
@@ -13,11 +13,15 @@
     <p>I stay updated, so you don't have to.</p>
     <hr>
     {{ partialCached "subscribe.html" . }}
+    <p>Supported by</p>
+    <div class="aa-container">
+      <center><iframe data-aa='1977580' src='//acceptable.a-ads.com/1977580?size=Adaptive&background_color=000000&text_color=999999&title_color=029d06&title_hover_color=fc9d0f&link_color=029d06&link_hover_color=fc9d0f' style='width:100%; height:90px; border: 1px solid #029d06; padding:0; overflow:hidden; background-color: transparent;'></iframe></center>
+    </div>
     <hr>
   </article>  
   <div class="posts">
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
-    {{ range $paginator.Pages }}
+    {{ range $index, $page := $paginator.Pages }}
     
     {{ if in .Params.categories "linked" }}
       <article class="post linked">
@@ -36,8 +40,20 @@
       </h1>
       <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
       <p>{{ .Content }}</p>
+      <hr>
     </article>
-    <hr>
+    
+    {{ if or (eq $index 2) (eq $index 5) (eq $index 8) }}
+      <article class="adsense">
+        <h1 class="adsense-header">
+          <a class="spon-link" href="#">&lt;AD&gt;</a>
+        </h1>
+        <div class="adsense-container">
+        {{ partial "adsense.html" . }}
+        </div>
+        <hr>
+      </article>
+    {{ end }}
     {{ end }}
     {{ partial "pagination" . }}
   </div>
