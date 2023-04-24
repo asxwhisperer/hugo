@@ -1,15 +1,21 @@
 {{ define "main" }}
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+{{ $widgetColor := "rgba(188, 2, 2, 1)" }}
+{{ $widgetColorBottom := "rgba(188, 2, 2, 0.5)" }}
 <main>
   {{ if in .Params.categories "linked" }}
     <article class="post linked">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+    {{ $widgetColor = "rgba(252, 157, 15, 1)" }}
+    {{ $widgetColorBottom = "rgba(252, 157, 15, 0.5)" }}
   {{ else if in .Params.categories "sponsored" }}
     <article class="post spon">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
+    {{ $widgetColor = "rgba(2, 157, 6, 1)" }}
+    {{ $widgetColorBottom = "rgba(2, 157, 6, 0.5)" }}
   {{ else }}
     <article class="post whisperer">
     <h1 class="post-title">
@@ -30,7 +36,7 @@
       {{  if eq (strings.RuneCount $ticker) 7 }}
         {{ $widgetTicker = $ticker }}
       {{ end }}
-        
+              
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
@@ -41,8 +47,8 @@
         "locale": "en",
         "dateRange": "1D",
         "colorTheme": "dark",
-        "trendLineColor": "rgba(252, 157, 15, 1)",
-        "underLineColor": "rgba(252, 157, 15, 0.5)",
+        "trendLineColor": {{ $widgetColor }},
+        "underLineColor": {{ $widgetColorBottom }},
         "underLineBottomColor": "rgba(252, 157, 15, 0)",
         "isTransparent": true,
         "autosize": true,
