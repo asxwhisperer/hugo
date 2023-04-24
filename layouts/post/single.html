@@ -54,77 +54,70 @@
       </div>
       <!-- TradingView Widget END -->
       <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
+    </article>
+    
     <hr>
-    <ul class="archives-list">
+    
+<!--     <ul class="archives-list"> -->
+      <aside class="related">
       <h3 id="">Recent Posts</a></h3>
       <ul class="related-posts">
-          
-          
-          {{ range $index, $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
-
-          <li class="archive-posts">
-            {{ $recentPost.Params.categories }}
-            {{ .Params.categories }}
-            {{ if in $recentPost.Params.categories "linked" }}
-              <h4 class="linked">
-                <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-            {{ else if in $recentPost.Params.categories "sponsored" }}
-              <h4 class="spon">
-                <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
-            {{ else }}
-              <h4 class="whisperer">
-                <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer-link" target="_blank">&lt;WHISP&gt;</a>
-            {{ end }}
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <a class="post-date" href="{{ .RelPermalink }}">
-                  <small><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></small>
-                </a>
-              </h4>
-            </li>
-            
-            {{ if not (eq $index 2)}}
-              <li class="multiplex-posts">
-                <h4 class="multiplex-header">
-                  <a class="spon-link" href="#">&lt;AD&gt;</a>
-                </h4>
-                <div class="multiplex-button"></div>
-                <div class="multiplex-x-button"></div>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297866031873651"
-                     crossorigin="anonymous"></script>
-                <ins class="adsbygoogle"
-                     style="display:block; max-height: 72px; width: 468px;"
-                     data-ad-format="fluid"
-                     data-ad-layout-key="-i9-18-1w-35+my"
-                     data-ad-client="ca-pub-6297866031873651"
-                     data-ad-slot="9071616521"><div class="multiplex-button"></div>
-                     <div class="multiplex-x-button"></div></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-              </li>
-            {{ end }}
-            
+      {{ range $index, $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
+        <li class="archive-posts">
+          {{ if in $recentPost.Params.categories "linked" }}
+            <h4 class="linked">
+              <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+          {{ else if in $recentPost.Params.categories "sponsored" }}
+            <h4 class="spon">
+              <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
+          {{ else }}
+            <h4 class="whisperer">
+              <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer-link" target="_blank">&lt;WHISP&gt;</a>
           {{ end }}
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <a class="post-date" href="{{ .RelPermalink }}">
+                <small><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></small>
+              </a>
+            </h4>
+          </li>
+        {{ if not (eq $index 2)}}
+          <li class="multiplex-posts">
+            <h4 class="multiplex-header">
+              <a class="spon-link" href="#">&lt;AD&gt;</a>
+            </h4>
+            <div class="multiplex-button"></div>
+            <div class="multiplex-x-button"></div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297866031873651"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block; max-height: 72px; width: 468px;"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-i9-18-1w-35+my"
+                 data-ad-client="ca-pub-6297866031873651"
+                 data-ad-slot="9071616521"><div class="multiplex-button"></div>
+                 <div class="multiplex-x-button"></div></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </li>
+        {{ end }}
+      {{ end }}
       </ul>
-    </ul>
+<!--     </ul> -->
+      </aside>
     <hr>
-    {{ range $name, $taxonomy := .Site.Taxonomies.category.linked }}
-          <h2 id="{{ $name }}"><a href="/2022/">{{ $name }}</a> <a href="#top">&#8599;</a></h2>
-          <ul class="related-posts">
-              {{ .Content }}
-              <li class="archive-posts">
-                <h4 class="linked">
-                  <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                  <a class="post-date" href="{{ .RelPermalink }}">
-                    <small>
-                      <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-                    </small>
-                  </a>
-                </h4>
-              </li>
-          </ul>
-    {{- end -}}
+    
+    <h3>Sponsored by</h3>
+    {{ $spon := first 1 (where in .Site.RegularPages .Params.categories "sponsored") }}
+    <article class="post spon" style="margin-top: 30px;">
+    <h1 class="post-title">
+      <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` $spon.RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
+    
+    <a href="{{ $spon.RelPermalink }}" class="title-link">{{ $spon.Title }}</a>
+    </h1>
+    {{ partial "metadata.html" . }}
+    <br><br>
+    {{ $spon.Content }}
   </article>
 </main>
 {{ end }}
