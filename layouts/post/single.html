@@ -27,7 +27,7 @@
         
       {{ $widgetTicker := "ASX:XJO" }}
 <!--       {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }} -->
-      {{ $tickerMatch := fineRE `\\(([^)]*:.*?)\\)` .Title }}
+      {{ $tickerMatch := findRE `\\(([^)]*:.*?)\\)` .Title }}
       {{ $ticker := index $tickerMatch 1 }}
 <!--       {{  if eq (strings.RuneCount $ticker) 7 }} -->
         {{ $widgetTicker = $ticker }}
