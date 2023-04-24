@@ -1,21 +1,17 @@
 {{ define "main" }}
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-{{ $widgetColor := "rgba(188, 2, 2, 1)" }}
-{{ $widgetColorBottom := "rgba(188, 2, 2, 0.5)" }}
+{{ $widgetColor := "rgba(252, 157, 15, 1)" }}
+{{ $widgetColorBottom := "rgba(252, 157, 15, 0.5)" }}
 <main>
   {{ if in .Params.categories "linked" }}
     <article class="post linked">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-    {{ $widgetColor = "rgba(252, 157, 15, 1)" }}
-    {{ $widgetColorBottom = "rgba(252, 157, 15, 0.5)" }}
   {{ else if in .Params.categories "sponsored" }}
     <article class="post spon">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
-    {{ $widgetColor = "rgba(2, 157, 6, 1)" }}
-    {{ $widgetColorBottom = "rgba(2, 157, 6, 0.5)" }}
   {{ else }}
     <article class="post whisperer">
     <h1 class="post-title">
@@ -27,103 +23,48 @@
     <br><br>
     {{ .Content }}
     <hr>
-      <!-- TradingView Widget BEGIN -->
-      <div class="post-widget-container">
-        <a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);" class="widget-link"><span>View full chart on</span><img src="/content/tradingview.svg"><span>Save $30 on a Pro or Premium TradingView account</span></a>
-        
-      {{ $widgetTicker := "ASX:XJO" }}
-      {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
-      {{  if eq (strings.RuneCount $ticker) 7 }}
-        {{ $widgetTicker = $ticker }}
-      {{ end }}
-              
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {
-        "symbol": "{{ $widgetTicker }}",
-        "width": "100%",
-        "height": "100%",
-        "locale": "en",
-        "dateRange": "1D",
-        "colorTheme": "dark",
-        "trendLineColor": {{ $widgetColor }},
-        "underLineColor": {{ $widgetColorBottom }},
-        "underLineBottomColor": "rgba(252, 157, 15, 0)",
-        "isTransparent": true,
-        "autosize": true,
-        "largeChartUrl": "https://asxwhispers.com"
-      }
-        </script>
-      </div>
-      </div>
-      <!-- TradingView Widget END -->
-      <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
+    <!-- TradingView Widget BEGIN -->
+    <div class="post-widget-container">
+      <a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);" class="widget-link"><span>View full chart on</span><img src="/content/tradingview.svg"><span>Save $30 on a Pro or Premium TradingView account</span></a>
+      
+    {{ $widgetTicker := "ASX:XJO" }}
+    {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
+    {{  if eq (strings.RuneCount $ticker) 7 }}
+      {{ $widgetTicker = $ticker }}
+    {{ end }}
+            
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+      {
+      "symbol": "{{ $widgetTicker }}",
+      "width": "100%",
+      "height": "100%",
+      "locale": "en",
+      "dateRange": "1D",
+      "colorTheme": "dark",
+      "trendLineColor": {{ $widgetColor }},
+      "underLineColor": {{ $widgetColorBottom }},
+      "underLineBottomColor": "rgba(252, 157, 15, 0)",
+      "isTransparent": true,
+      "autosize": true,
+      "largeChartUrl": "https://asxwhispers.com"
+    }
+      </script>
+    </div>
+    </div>
+    <!-- TradingView Widget END -->
+    <p class="spon widget-caption"><a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);">Save $30 on a Pro or Premium TradingView account</a></p>
       
     </article>
     
     <hr>
     
-    <aside class="related">
-    <h3 id="">Recent Posts</a></h3>
-    <ul class="related-posts">
-    {{ range $index, $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
-      <li class="archive-posts">
-        {{ if in $recentPost.Params.categories "linked" }}
-          <h4 class="linked">
-            <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-        {{ else if in $recentPost.Params.categories "sponsored" }}
-          <h4 class="spon">
-            <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
-        {{ else }}
-          <h4 class="whisperer">
-            <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer-link" target="_blank">&lt;WHISP&gt;</a>
-        {{ end }}
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <a class="post-date" href="{{ .RelPermalink }}">
-              <small><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></small>
-            </a>
-          </h4>
-        </li>
-      {{ if not (eq $index 2)}}
-        <li class="multiplex-posts">
-          <h4 class="multiplex-header">
-            <a class="spon-link" href="#">&lt;AD&gt;</a>
-          </h4>
-          <div class="multiplex-button"></div>
-          <div class="multiplex-x-button"></div>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297866031873651"
-               crossorigin="anonymous"></script>
-          <ins class="adsbygoogle"
-               style="display:block; max-height: 72px; width: 468px;"
-               data-ad-format="fluid"
-               data-ad-layout-key="-i9-18-1w-35+my"
-               data-ad-client="ca-pub-6297866031873651"
-               data-ad-slot="9071616521"><div class="multiplex-button"></div>
-               <div class="multiplex-x-button"></div></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </li>
-      {{ end }}
-    {{ end }}
-    </ul>
-    </aside>
+    {{ partialCached "recent-posts.html" . }}
     
-    <h3>Sponsored by</h3>
-    {{ $posts := where site.RegularPages "Type" "post" }}
-    {{ $posts = where $posts ".Params.categories" "intersect" (slice "sponsored") }}
-    
-    {{ range $spon := first 1 $posts }}
-    <article class="post spon">
-      <h1 class="post-title">
-        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` $spon.RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
-        <a href="{{ $spon.RelPermalink }}" class="title-link">{{ $spon.Title }}</a>
-      </h1>
-      {{ partial "metadata.html" . }}
-      <br><br>
-      {{ $spon.Content }}
-    {{ end }}
-  </article>
+    {{ partialCached "sponsored-posts.html" . }}
+  <hr>
+  {{ partialCached "subscribe.html" . }}
+  <hr>
 </main>
 {{ end }}
