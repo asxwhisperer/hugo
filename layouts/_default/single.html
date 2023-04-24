@@ -3,15 +3,15 @@
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 <main>
   {{ if in .Params.categories "linked" }}
-    <article class="post linked" style="margin-top: 30px;">
+    <article class="post linked">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
   {{ else if in .Params.categories "sponsored" }}
-    <article class="post spon" style="margin-top: 30px;">
+    <article class="post spon">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
   {{ else }}
-    <article class="post whisperer" style="margin-top: 30px;">
+    <article class="post whisperer">
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">&lt;WHISP&gt;</a>
   {{ end }}
