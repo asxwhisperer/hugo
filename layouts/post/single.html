@@ -58,7 +58,10 @@
     <ul class="archives-list">
       <h3 id="">Recent Posts</a></h3>
       <ul class="related-posts">
-          {{ range $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
+          
+          
+          {{ range $index, $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
+
           <li class="archive-posts">
             {{ $recentPost.Params.categories }}
             {{ .Params.categories }}
@@ -70,7 +73,7 @@
                 <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
             {{ else }}
               <h4 class="whisperer">
-                <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">&lt;WHISP&gt;</a>
+                <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer-link" target="_blank">&lt;WHISP&gt;</a>
             {{ end }}
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 <a class="post-date" href="{{ .RelPermalink }}">
@@ -78,6 +81,29 @@
                 </a>
               </h4>
             </li>
+            
+            {{ if not (eq $index 2)}}
+              <li class="multiplex-posts">
+                <h4 class="multiplex-header">
+                  <a class="spon-link" href="#">&lt;AD&gt;</a>
+                </h4>
+                <div class="multiplex-button"></div>
+                <div class="multiplex-x-button"></div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297866031873651"
+                     crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block; max-height: 72px; width: 468px;"
+                     data-ad-format="fluid"
+                     data-ad-layout-key="-i9-18-1w-35+my"
+                     data-ad-client="ca-pub-6297866031873651"
+                     data-ad-slot="9071616521"><div class="multiplex-button"></div>
+                     <div class="multiplex-x-button"></div></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </li>
+            {{ end }}
+            
           {{ end }}
       </ul>
     </ul>
