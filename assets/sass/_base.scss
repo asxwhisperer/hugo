@@ -139,11 +139,66 @@ tbody tr:nth-child(even) th {
   background-color: $light-amber;
 }
 
-.adsense {
+.adsense, .shoutout {
   position: relative;
   width: 468px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.shoutout {
+  border: 1px solid $green;
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.shoutout-container {
+  padding: 15px;
+}
+
+.shoutout-title {
+  padding-right: 1rem;
+}
+
+.shoutout-content {
+  color: $grey-medium;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.shoutout-footer {
+  display: flex;
+}
+
+.shoutout-link {
+  align-self: center;
+  color: $green;
+  text-decoration: underline;
+}
+
+.shoutout-link:hover {
+    background: $green;
+    color: black;
+}
+
+.shoutout-button {
+  border: 1px solid $green;
+  background: black;
+  color: $green;
+  text-decoration: none;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: $root-font-family;
+  font-size: $root-font-size;
+  line-height: $root-line-height;
+  margin-left: auto;
+}
+
+.shoutout-button:hover {
+  background: $green;
+  color: black;
 }
 
 .adsense-container {

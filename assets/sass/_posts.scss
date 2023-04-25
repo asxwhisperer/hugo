@@ -222,6 +222,15 @@ a.post-date {
  text-decoration: underline;
 }
 
+.spon-link {
+  color: $green;
+}
+
+.spon-link a:hover {
+  background: $green;
+  color: black;
+}
+
 .widget-caption, .widget-link, .post-widget-container {
   width: $ad-big-width;
 }
