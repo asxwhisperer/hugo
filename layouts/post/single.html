@@ -21,7 +21,9 @@
     </h1>
     {{ partial "metadata.html" . }}
     <br><br>
-    {{ .Content }}
+    <div class="post-content">
+      {{ .Content }}
+    </div>
     <hr>
     <!-- TradingView Widget BEGIN -->
     <div class="post-widget-container">
