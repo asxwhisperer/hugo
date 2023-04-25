@@ -16,50 +16,48 @@
     <hr>
   </article>  
   <div class="posts">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") 10 }}
     {{ range $index, $page := $paginator.Pages }}
-    
-    {{ if in .Params.categories "linked" }}
-      <article class="post linked">
-      <h1 class="post-title">
-        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">{{ safeHTML "&lt;LINK&gt;" }}</a>
-    {{ else if in .Params.categories "sponsored" }}
-      <article class="post spon">
-      <h1 class="post-title">
-        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">{{ safeHTML "&lt;SPON&gt;" }}</a>
-    {{ else }}
-      <article class="post whisperer">
-      <h1 class="post-title">
-        <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">{{ safeHTML "&lt;WHISP&gt;" }}</a>
-    {{ end }}
-        <a href="{{ .RelPermalink }}" class="linked-title">{{ .Title }}</a>
-      </h1>
-      <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
-      <div class="post-content">
-        {{ .Content }}
-      </div>
-    </article>
-    <hr>
-    
-    {{ if or (eq $index 2) (eq $index 8) }}
-      <article class="adsense">
-        <h1 class="adsense-header">
-          <a class="spon-link" href="#">&lt;AD&gt;</a>
+      {{ if in .Params.categories "linked" }}
+        <article class="post linked">
+        <h1 class="post-title">
+          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">{{ safeHTML "&lt;LINK&gt;" }}</a>
+      {{ else if in .Params.categories "sponsored" }}
+        <article class="post spon">
+        <h1 class="post-title">
+          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">{{ safeHTML "&lt;SPON&gt;" }}</a>
+      {{ else }}
+        <article class="post whisperer">
+        <h1 class="post-title">
+          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">{{ safeHTML "&lt;WHISP&gt;" }}</a>
+      {{ end }}
+          <a href="{{ .RelPermalink }}" class="linked-title">{{ .Title }}</a>
         </h1>
-        <div class="adsense-container">
-        {{ partial "adsense.html" . }}
+        <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
+        <div class="post-content">
+          {{ .Content }}
         </div>
       </article>
       <hr>
-    {{ end }}
-    
-    {{ if eq $index 5 }}
-      <article class="aa-container">
-        <center><iframe data-aa='1977580' src='//acceptable.a-ads.com/1977580?size=Adaptive&background_color=000000&text_color=999999&title_color=029d06&title_hover_color=fc9d0f&link_color=029d06&link_hover_color=fc9d0f' style='width:100%; height:90px; border: 1px solid #029d06; padding:0; overflow:hidden; background-color: transparent;'></iframe></center>
-      </article>
-      <hr>
-    {{ end }}
-    
+      
+      {{ if or (eq $index 2) (eq $index 7) }}
+        <article class="adsense">
+          <h1 class="adsense-header">
+            <a class="spon-link" href="#">&lt;AD&gt;</a>
+          </h1>
+          <div class="adsense-container">
+          {{ partial "adsense.html" . }}
+          </div>
+        </article>
+        <hr>
+      {{ end }}
+      
+      {{ if eq $index 5 }}
+        <article class="aa-container">
+          <center><iframe data-aa='1977580' src='//acceptable.a-ads.com/1977580?size=Adaptive&background_color=000000&text_color=999999&title_color=029d06&title_hover_color=fc9d0f&link_color=029d06&link_hover_color=fc9d0f' style='width:100%; height:90px; border: 1px solid #029d06; padding:0; overflow:hidden; background-color: transparent;'></iframe></center>
+        </article>
+        <hr>
+      {{ end }}
     {{ end }}
     {{ partial "pagination" . }}
   </div>
