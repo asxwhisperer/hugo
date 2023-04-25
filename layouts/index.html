@@ -36,8 +36,8 @@
       </h1>
       <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
       <p>{{ .Content }}</p>
-      <hr>
     </article>
+    <hr>
     
     {{ if or (eq $index 2) (eq $index 8) }}
       <article class="adsense">
@@ -47,14 +47,15 @@
         <div class="adsense-container">
         {{ partial "adsense.html" . }}
         </div>
-        <hr>
       </article>
+      <hr>
     {{ end }}
     
     {{ if eq $index 5 }}
-      <div class="aa-container">
+      <article class="aa-container">
         <center><iframe data-aa='1977580' src='//acceptable.a-ads.com/1977580?size=Adaptive&background_color=000000&text_color=999999&title_color=029d06&title_hover_color=fc9d0f&link_color=029d06&link_hover_color=fc9d0f' style='width:100%; height:90px; border: 1px solid #029d06; padding:0; overflow:hidden; background-color: transparent;'></iframe></center>
-      </div>
+      </article>
+      <hr>
     {{ end }}
     
     {{ end }}
