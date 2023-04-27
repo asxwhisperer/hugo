@@ -15,12 +15,12 @@
             "title": "All Ordinaries",
             "proName": "INDEX:AORD"
           },
-          {{ range first 10 (where .Site.RegularPages "Type" "post") }}
+          {{ range first 20 (where .Site.RegularPages "Type" "post") }}
             {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
             {{  if eq (len $ticker) 7 }}
               {
-                "title": "{{ $ticker }}",
-                "proName": "{{ slice (split $ticker ':') 1 }}"
+                "title": "{{ index (split $ticker ":") 1 }}",
+                "proName": "{{ $ticker }}"
               },
             {{ end }}
           {{ end }}
