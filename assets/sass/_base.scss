@@ -198,12 +198,15 @@ tbody tr:nth-child(even) th {
   font-family: $root-font-family;
   font-size: $root-font-size;
   line-height: $root-line-height;
-  margin-left: auto;
 }
 
 .shoutout-button:hover {
   background: $green;
   color: black;
+}
+
+.shoutout-button-link {
+  margin-left: auto;
 }
 
 .adsense-container {
