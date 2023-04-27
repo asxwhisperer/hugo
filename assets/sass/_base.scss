@@ -153,7 +153,6 @@ tbody tr:nth-child(even) th {
 }
 
 .shoutout {
-  border: 1px solid $green;
   h2 {
     margin-top: 0;
   }
@@ -161,6 +160,7 @@ tbody tr:nth-child(even) th {
 
 .shoutout-container {
   padding: 15px;
+  border: 1px solid $green;
 }
 
 .shoutout-title {
