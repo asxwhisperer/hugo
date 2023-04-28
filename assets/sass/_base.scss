@@ -155,6 +155,12 @@ tbody tr:nth-child(even) th {
   display: flex;
 }
 
+ul .shoutout {
+  border: none;
+  height: auto;
+  display: block;
+}
+
 .shoutout-container {
   padding: 15px;
   margin: auto;
