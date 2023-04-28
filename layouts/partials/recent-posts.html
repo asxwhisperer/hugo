@@ -15,7 +15,7 @@
 	  <h4 class="whisperer">
 		<a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer-link" target="_blank">&lt;WHISP&gt;</a>
 	{{ end }}
-		<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		<a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
 		<a class="post-date" href="{{ .RelPermalink }}">
 		  <small><time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time></small>
 		</a>
@@ -40,7 +40,7 @@
 		(adsbygoogle = window.adsbygoogle || []).push({});
 	  </script>
 	</li> -->
-	<script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?theme=45" defer></script>
+	<script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?theme=45?i={{ $index }}" defer></script>
   {{ end }}
 {{ end }}
 </ul>

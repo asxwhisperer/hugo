@@ -150,13 +150,6 @@ h4 .post-date {
   min-height: 2rem;
 }
 
-.ticker {
-  background: $amber;
-  color: black;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .multiplex-header {
   margin: 0;
   position: absolute;
@@ -194,14 +187,6 @@ h4 .post-date {
 
 .linked a {
   color: $amber;
-}
-
-a.ticker {
-  color: black;
-}
-
-a.ticker:hover {
-  color: white;
 }
 
 .linked a:hover {
@@ -370,4 +355,19 @@ a.widget-link:hover {
 
 .post-content p:last-child a:last-child {
   display: none;
+}
+
+.ticker {
+  background: $amber;
+  color: black;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+a.ticker {
+  color: black;
+}
+
+a.ticker:hover {
+  color: white;
 }
