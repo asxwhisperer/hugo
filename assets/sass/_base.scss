@@ -161,9 +161,9 @@ tbody tr:nth-child(even) th {
   padding-right: 1rem;
 }
 
-.shoutout-title, .shoutout-content {
+.shoutout-container h2, .shoutout-content {
   width: 436px;
-  text-overflow: ellipsis;
+  // text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
