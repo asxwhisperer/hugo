@@ -184,11 +184,11 @@ tbody tr:nth-child(even) th {
   display: flex;
 }
 
-.shoutout-link {
-  align-self: center;
-  color: $green;
-  text-decoration: underline;
-}
+// .shoutout-link {
+//   align-self: center;
+//   color: $green;
+//   text-decoration: underline;
+// }
 
 .shoutout-link:hover {
     background: $green;
@@ -197,7 +197,7 @@ tbody tr:nth-child(even) th {
 
 .shoutout-button {
   border: 1px solid $green;
-  background: black;
+  background: $green;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -211,7 +211,6 @@ tbody tr:nth-child(even) th {
 .shoutout-button:hover {
   background: $light-green;
   color: black;
-  text-decoration: underline;
 }
 
 .shoutout-button-link {
