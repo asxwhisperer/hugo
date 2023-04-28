@@ -159,6 +159,7 @@ ul .shoutout {
   border: none;
   height: auto;
   display: block;
+  width: auto;
 }
 
 .shoutout-container {
@@ -229,6 +230,10 @@ ul .shoutout {
 @media only screen and (max-width: 768px) {
   .shoutout {
     width: $ad-small-width;
+  }
+  
+  h2 .shoutout {
+    width: auto;
   }
   
   .shoutout-link {
