@@ -151,11 +151,13 @@ tbody tr:nth-child(even) th {
     margin-top: 0;
   }
   height: 200px;
+  border: 1px solid $green;
+  display: flex;
 }
 
 .shoutout-container {
   padding: 15px;
-  border: 1px solid $green;
+  margin: auto;
 }
 
 .shoutout-title {
@@ -164,7 +166,7 @@ tbody tr:nth-child(even) th {
 
 .shoutout-container h2, .shoutout-content {
   width: 436px;
-  // text-overflow: ellipsis;
+  text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical; 
@@ -172,6 +174,7 @@ tbody tr:nth-child(even) th {
 
 .shoutout-container h2 {
   -webkit-line-clamp: 2;
+  color: $green;
 }
 
 .shoutout-content {
