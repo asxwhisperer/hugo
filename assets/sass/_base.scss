@@ -184,11 +184,11 @@ tbody tr:nth-child(even) th {
   display: flex;
 }
 
-// .shoutout-link {
-//   align-self: center;
-//   color: $green;
-//   text-decoration: underline;
-// }
+.shoutout-link {
+  align-self: center;
+  color: $green;
+  text-decoration: underline;
+}
 
 .shoutout-link:hover {
     background: $green;
