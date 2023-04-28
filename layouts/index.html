@@ -31,7 +31,7 @@
         <h1 class="post-title">
           <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">{{ safeHTML "&lt;WHISP&gt;" }}</a>
       {{ end }}
-          <a href="{{ .RelPermalink }}" class="link-title">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
         </h1>
         <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
         <div class="post-content">
