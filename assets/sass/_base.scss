@@ -146,12 +146,6 @@ tbody tr:nth-child(even) th {
   margin-right: auto;
 }
 
-@media only screen and (max-width: 768px) {
-  .shoutout {
-    width: $ad-small-width;
-  }
-}
-
 .shoutout {
   h2 {
     margin-top: 0;
@@ -165,6 +159,15 @@ tbody tr:nth-child(even) th {
 
 .shoutout-title {
   padding-right: 1rem;
+}
+
+.shoutout-title, .shoutout-content {
+  width: 436px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
 }
 
 .shoutout-content {
@@ -207,6 +210,16 @@ tbody tr:nth-child(even) th {
 
 .shoutout-button-link {
   margin-left: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .shoutout {
+    width: $ad-small-width;
+  }
+  
+  .shoutout-link {
+    display: none;
+  }
 }
 
 .adsense-container {
