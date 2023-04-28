@@ -12,7 +12,7 @@ elements.forEach((el) => {
   for (const match of matches) {
     const tickerEl = document.createElement(el.tagName === 'H1' ? 'span' : 'a');
     tickerEl.classList.add('ticker');
-    const url = `/categories/${match[1].split(':')[1].trim().toLowerCase()}`; // Get the URL from the matched regex and ensure it's lowercase
+    const url = `/categories/${match[1].split(':')[1].trim().toLowerCase()}/`; // Get the URL from the matched regex and ensure it's lowercase
     if (el.tagName !== 'H1') { // If it's an "a" tag, set the href attribute
       tickerEl.href = url;
     }

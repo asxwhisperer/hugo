@@ -196,8 +196,12 @@ h4 .post-date {
   color: $amber;
 }
 
-.linked a.ticker {
+a.ticker {
   color: black;
+}
+
+a.ticker:hover {
+  color: white;
 }
 
 .linked a:hover {
