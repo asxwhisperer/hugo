@@ -233,11 +233,13 @@ ul .shoutout {
 
 .shoutout-image {
   width: 100%;
-  position: absolute:
+  position: absolute;
   top: 0;
   right: 0;
   display: none;
   z-index: 10;
+  border-radius: 0;
+  border: 1px solid #029d06;
 }
 
 @media only screen and (max-width: 768px) {
