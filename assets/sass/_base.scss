@@ -156,7 +156,9 @@ tbody tr:nth-child(even) th {
 }
 
 .shoutout:hover {
-  
+  .shoutout-image {
+    display: block;
+  }
 }
 
 ul .shoutout {
