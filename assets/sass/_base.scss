@@ -155,6 +155,10 @@ tbody tr:nth-child(even) th {
   display: flex;
 }
 
+.shoutout:hover {
+  
+}
+
 ul .shoutout {
   border: none;
   height: auto;
@@ -200,7 +204,7 @@ ul .shoutout {
   text-decoration: underline;
 }
 
-.shoutout-link:hover {
+.shoutout-link:hover, .shoutout-container h2:hover {
     background: $green;
     color: black;
 }
@@ -225,6 +229,15 @@ ul .shoutout {
 
 .shoutout-button-link {
   margin-left: auto;
+}
+
+.shoutout-image {
+  width: 100%;
+  position: absolute:
+  top: 0;
+  right: 0;
+  display: none;
+  z-index: 10;
 }
 
 @media only screen and (max-width: 768px) {
