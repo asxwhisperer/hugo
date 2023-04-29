@@ -206,7 +206,7 @@ ul .shoutout {
   text-decoration: underline;
 }
 
-.shoutout-link:hover, .shoutout-container h2:hover {
+.shoutout-link:hover {
     background: $green;
     color: black;
 }
@@ -235,13 +235,13 @@ ul .shoutout {
 
 .shoutout-image {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   right: 0;
   display: none;
   z-index: 10;
   border-radius: 0;
-  border: 1px solid #029d06;
 }
 
 @media only screen and (max-width: 768px) {
