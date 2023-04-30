@@ -42,10 +42,10 @@
         </g>
     </g>
     <g id="logo-copy-3">
-        <path id="path20" fill="#000000" stroke="none" d="M 866.199524 456 C 866.199524 682.988647 682.188171 867 455.199524 867 C 228.210861 867 44.190472 682.988647 44.190472 456 C 44.190472 229.011353 228.201813 45 455.199524 45 C 682.197205 45 866.199524 229.011353 866.199524 456 Z M 529.848633 191.682251 L 507 192 L 455 192 L 380.541382 191.682251 L 211.320465 191.682251 L 210 362 L 422 532 L 210 532 L 210 635 L 295 702 L 717 702 L 717 532 L 508.000031 362 L 717 362 L 717 257 L 633 192 Z"/>
+        <path id="path20" fill="#000000" stroke="none" d="M 866.199524 456 C 866.199524 682.988647 682.188171 867 455.199524 867 C 228.210861 867 44.190472 682.988647 44.190472 456 C 44.190472 229.011353 228.201813 45 455.199524 45 C 682.197205 45 866.199524 229.011353 866.199524 456 Z M 529.848633 191.682251 L 507 192 L 455 192 L 380.541382 191.682251 L 295 192 L 210 249 L 210 362 L 422 532 L 210 532 L 210 635 L 295 702 L 633 702 L 717 646 L 717 532 L 508.000031 362 L 717 362 L 717 257 L 633 192 Z"/>
         <g id="g6">
             <path id="path21" fill="none" stroke="#000000" stroke-width="18.103334" stroke-linecap="round" stroke-linejoin="round" d="M 295.002472 191.996277 L 717 532"/>
-            <path id="Path-copy-2" fill="none" stroke="#000000" stroke-width="18.103334" stroke-linecap="round" stroke-linejoin="round" visibility="hidden" d="M 480.002472 68.996277 L 902 409"/>
+            <path id="Path-copy-2" fill="none" stroke="#000000" stroke-width="18.103334" stroke-linecap="round" stroke-linejoin="round" visibility="hidden" d="M 389.317261 870.37738 L 834.685242 561.618896"/>
             <path id="path22" fill="none" stroke="#000000" stroke-width="18.103334" stroke-linecap="round" stroke-linejoin="round" d="M 211 362 L 633.00177 702.996826"/>
             <path id="Path-copy" fill="none" stroke="#000000" stroke-width="18.103334" stroke-linecap="round" stroke-linejoin="round" visibility="hidden" d="M -10 454 L 412.00177 794.996826"/>
             <path id="path23" fill="none" stroke="#000000" stroke-width="19.076397" stroke-linecap="round" stroke-linejoin="round" d="M 465.199524 702.899536 L 465.199524 190.493713"/>
