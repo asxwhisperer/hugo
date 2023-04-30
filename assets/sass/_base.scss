@@ -150,15 +150,8 @@ tbody tr:nth-child(even) th {
   h2 {
     margin-top: 0;
   }
-  height: 200px;
   border: 1px solid $green;
   display: flex;
-}
-
-.shoutout:hover {
-  .shoutout-image {
-    display: block;
-  }
 }
 
 ul .shoutout {
@@ -177,12 +170,24 @@ ul .shoutout {
   padding-right: 1rem;
 }
 
-.shoutout-container h2, .shoutout-content {
-  width: 436px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical; 
+@media only screen and (min-width: 768px) {
+    .shoutout-container h2, .shoutout-content {
+    width: 436px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+  }
+  
+  .shoutout {
+    height: 200px;
+  }
+  
+  .shoutout:hover {
+    .shoutout-image {
+      display: block;
+    }
+  }
 }
 
 .shoutout-container h2 {
