@@ -9,12 +9,12 @@
     <p>The Director's Commentary of the ASX</p>
 
     <p>I work in finance, my job requires me to read all the ASX announcements that come out each day. I pick out the most interesting, the most talked about, and the most impactful announcements that move the market.</p>
-    
+
     <p>I stay updated, so you don't have to.</p>
     <hr>
     {{ partialCached "subscribe.html" . }}
     <hr>
-  </article>  
+  </article>
   <div class="posts">
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") 10 }}
     {{ range $index, $page := $paginator.Pages }}
@@ -39,7 +39,7 @@
         </div>
       </article>
       <hr>
-      
+
       {{ if (eq $index 5) }}
         <article class="adsense">
 <!--           <h1 class="adsense-header">
@@ -51,10 +51,10 @@
         </article>
         <hr>
       {{ end }}
-      
+
 
       {{ if or (eq $index 2) (eq $index 7) }}
-        <script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?width=936?i={{ $index }}" defer></script>
+        <!-- <script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?width=936?i={{ $index }}" defer></script> -->
         <hr>
       {{ end }}
     {{ end }}

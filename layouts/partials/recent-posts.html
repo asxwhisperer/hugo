@@ -1,7 +1,7 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "2 Jan 2006" }}
 <aside class="related">
-<h3 id="">Recent Posts</a></h3>
+<h3 id="">Recent Posts</h3>
 <ul class="related-posts">
 {{ range $index, $recentPost := first 3 (where .Site.RegularPages "Type" "post") }}
   <li class="archive-posts">
@@ -22,24 +22,6 @@
 	  </h4>
 	</li>
   {{ if not (eq $index 2)}}
-<!-- 	<li class="multiplex-posts">
-	  <h4 class="multiplex-header">
-		<a class="spon-link" href="#">&lt;AD&gt;</a>
-	  </h4>
-	  <div class="multiplex-button"></div>
-	  <div class="multiplex-x-button"></div>
-	  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6297866031873651" crossorigin="anonymous"></script>
-	  <ins class="adsbygoogle"
-	   style="display:block; max-height: 72px; width: 468px;"
-	   data-ad-format="fluid"
-	   data-ad-layout-key="-i9-18-1w-35+my"
-	   data-ad-client="ca-pub-6297866031873651"
-	   data-ad-slot="9071616521"><div class="multiplex-button"></div>
-	   <div class="multiplex-x-button"></div></ins>
-	  <script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-	  </script>
-	</li> -->
 	<script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?theme=45?i={{ $index }}" defer></script>
   {{ end }}
 {{ end }}
