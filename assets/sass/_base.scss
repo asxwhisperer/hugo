@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Bloomberg Prop Unicode N";
-  src: url('/content/fonts/Bloomberg-PropU_N.ttf');
+  src: url('/content/fonts/Bloomberg-PropU_N.woff2');
 }
 
 html {
@@ -71,7 +71,7 @@ body {
     border-left: 0.5rem solid $amber;
     border-right: 0.5rem solid $amber;
   }
-  
+
   body:before, body:after {
     height: 0.5rem;
   }
@@ -176,13 +176,13 @@ ul .shoutout {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-box-orient: vertical; 
+    -webkit-box-orient: vertical;
   }
-  
+
   .shoutout {
     height: 200px;
   }
-  
+
   .shoutout:hover {
     .shoutout-image {
       display: block;
@@ -253,11 +253,11 @@ ul .shoutout {
   .shoutout {
     width: $ad-small-width;
   }
-  
+
   h2 .shoutout {
     width: auto;
   }
-  
+
   .shoutout-link {
     display: none;
   }
@@ -306,7 +306,7 @@ ul .shoutout {
 }
 
 .embeddable-buttondown-form label {
-  
+
 }
 
 .embeddable-buttondown-form input {
@@ -364,7 +364,7 @@ ul .shoutout {
   .embeddable-buttondown-form input {
     font-size: 1rem;
   }
-  
+
   .embeddable-buttondown-form input[type=email] {
     width: 60%;
   }
