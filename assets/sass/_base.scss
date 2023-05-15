@@ -22,13 +22,12 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-
-html {
   font-family: $root-font-family;
   font-size: $root-font-size;
   line-height: $root-line-height;
+}
 
+html {
   @media (min-width: $large-breakpoint) {
     font-size: $large-font-size;
   }
