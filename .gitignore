@@ -1,4 +1,5 @@
 content/
 public/
-.DS_Store
-.nova/
+resources/
+.*
+!.gitignore

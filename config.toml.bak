@@ -1,0 +1,24 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "ASX Spectator"
+
+sectionPagesMenu = "main"
+
+
+
+# Pagination Amount
+paginate = 10
+
+# HTML enable in MD
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Taxonomy, Categories
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  year = "year"
+	month = "month"
+
