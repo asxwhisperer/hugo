@@ -1,32 +1,44 @@
 {{ define "main" }}
-{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-<h1>{{ .Title }}</h1>
-<div>{{ .Content }}</div>
-{{ $paginator := .Paginate .Site.RegularPages }}
-    {{ range $paginator.Pages | first 1 }}
-    <hr>
+  {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+  <h1>{{ .Title }}</h1>
+  <div>{{ .Content }}</div>
+  {{ $paginator := .Paginate .Site.RegularPages }}
+  {{ range $paginator.Pages |
+    first 1
+  }}
+    <hr />
     <nav class="archive-nav" aria-label="year">
-        <p>
-          <strong><a href="">{{ .PublishDate.Year }}</a></strong>&nbsp;
-        </p>
+      <p>
+        <strong>
+          <a href="">{{ .PublishDate.Year }}</a>
+        </strong>&nbsp;
+      </p>
     </nav>
-        
-    <hr>
-{{ end }}
-{{ range .Pages.ByPublishDate.Reverse }}
-<ul class="related-posts">
+
+    <hr />
+  {{ end }}
+  {{ range .Pages.ByPublishDate.Reverse }}
+    <ul class="related-posts">
       <li class="archive-posts">
         <h4 class="linked">
-          <a href="{{ .Params.external_url }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
+          <a
+            href="{{ .Params.external_url }}"
+            class="linked-link"
+            target="_blank"
+          >
+            &lt;LINK&gt;
+          </a>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           <a class="post-date" href="{{ .RelPermalink }}">
             <small>
-              <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+              <time datetime="{{ $dateTime }}">
+                {{ .PublishDate.Format $dateFormat }}
+              </time>
             </small>
           </a>
         </h4>
       </li>
-</ul>
-{{ end }}
+    </ul>
+  {{ end }}
 {{ end }}

@@ -21,7 +21,7 @@
       {{ if in .Params.categories "linked" }}
         <article class="post linked">
         <h1 class="post-title">
-          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">{{ safeHTML "&lt;LINK&gt;" }}</a>
+          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
           <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
         </h1>
       {{ else if in .Params.categories "sponsored" }}
@@ -56,7 +56,10 @@
         <hr>
       {{ end }}
       {{ if or (eq $index 2) (eq $index 7) }}
-        <!-- <script src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?width=936?i={{ $index }}" defer></script> -->
+    <!-- <script
+          src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?width=936?i={{ $index }}"
+          defer
+        ></script> -->
         <hr>
       {{ end }}
     {{ end }}
