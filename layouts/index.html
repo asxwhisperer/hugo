@@ -18,25 +18,30 @@
   <div class="posts">
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") 10 }}
     {{ range $index, $page := $paginator.Pages }}
+
+      {{ $category := "whisperer" }}
+      {{ $categoryAbbr := "WHISP" }}
+
       {{ if in .Params.categories "linked" }}
-        <article class="post linked">
-        <h1 class="post-title">
-          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;LINK&gt;</a>
-          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
-        </h1>
+        {{ $category = "linked" }}
+        {{ $categoryAbbr = "LINK" }}
       {{ else if in .Params.categories "sponsored" }}
-        <article class="post spon">
-        <h1 class="post-title">
-          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">{{ safeHTML "&lt;SPON&gt;" }}</a>
-          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
-        </h1>
-      {{ else }}
-        <article class="post whisperer">
-        <h1 class="post-title">
-          <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">{{ safeHTML "&lt;WHISP&gt;" }}</a>
-          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
-        </h1>
+        {{ $category = "sponsored" }}
+        {{ $categoryAbbr = "SPON" }}
       {{ end }}
+
+      <article class="post {{ $category }}">
+        <h1 class="post-title">
+          <a
+            href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}"
+            class="{{ $category }}-link"
+            target="_blank"
+          >
+            &lt;{{ $categoryAbbr }}&gt;
+          </a>
+          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
+        </h1>
+
         <a class="post-date" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</a>
         <div class="post-content">
           {{ .Content }}
