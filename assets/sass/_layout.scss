@@ -1,5 +1,4 @@
 // Layout
-//
 // Styles for managing the structural hierarchy of the site.
 
 .container {
@@ -13,12 +12,12 @@
 footer {
   margin-bottom: 2rem;
   text-align: center;
-  width: 100vw;
   position: relative;
   left: calc(50% + 0.75rem);
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+
   // left: $border-size;
   width: calc(100vw - 1.5rem);
 }

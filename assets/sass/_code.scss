@@ -1,5 +1,4 @@
 // Code
-//
 // Inline and block-level code snippets. Includes tweaks to syntax highlighted
 // snippets from Pygments/Rouge and Gist embeds.
 
@@ -50,9 +49,8 @@ pre code {
     padding-right: 0.75rem;
     padding-left: 0.25rem;
     color: #999;
+
     // Make sure numbers aren't selectable
-    user-select: none;
-    user-select: none;
     user-select: none;
   }
 }

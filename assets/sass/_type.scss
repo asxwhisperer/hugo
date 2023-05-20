@@ -1,5 +1,4 @@
 // Typography
-//
 // Headings, body text, lists, and other misc typographic elements.
 
 h1,
@@ -13,6 +12,10 @@ h6 {
   line-height: 1.2;
   color: $grey-medium;
   text-rendering: optimizelegibility;
+
+  a {
+    color: $amber;
+  }
 }
 
 h1 {
@@ -34,17 +37,6 @@ h5,
 h6 {
   margin-top: 1rem;
   font-size: 1rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  a {
-    color: $amber;
-  }
 }
 
 p {
@@ -114,7 +106,6 @@ blockquote {
 }
 
 // Markdown footnotes
-//
 // See the example content post for an example.
 
 // Footnote number within body text
@@ -133,7 +124,6 @@ a[href^="#fnref:"] {
 }
 
 // Custom type
-//
 // Extend paragraphs with `.lead` for larger introductory text.
 
 .lead {

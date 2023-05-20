@@ -1,5 +1,4 @@
 // Body resets
-//
 // Update the foundational and global aspects of the page.
 
 * {
@@ -9,10 +8,6 @@
 @font-face {
   font-family: "Bloomberg Prop Unicode N";
   src: url("/content/fonts/Bloomberg-PropU_N.woff2");
-}
-
-html {
-  // --tint-color: $amber;
 }
 
 html,
@@ -34,7 +29,15 @@ body {
   color: $grey-light;
   background-color: $body-bg;
   text-size-adjust: 100%;
-  text-size-adjust: 100%;
+
+  // outline: 10px solid $amber;
+  border-left: $border-size solid $amber;
+  border-right: $border-size solid $amber;
+  padding-top: 28px;
+  padding-bottom: $border-size;
+
+  // z-index: 999;
+  min-height: 100vh;
 }
 
 body::before,
@@ -54,17 +57,6 @@ body::before {
 
 body::after {
   bottom: 0;
-}
-
-body {
-  // outline: 10px solid $amber;
-  border-left: $border-size solid $amber;
-  border-right: $border-size solid $amber;
-  padding-top: 28px;
-  padding-bottom: $border-size;
-
-  // z-index: 999;
-  min-height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {

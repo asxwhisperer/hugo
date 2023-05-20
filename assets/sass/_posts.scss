@@ -1,5 +1,4 @@
 // Posts and pages
-//
 // Each post is wrapped in `.post` and is used on default and post layouts. Each
 // page is wrapped in `.page` and is only used on the page layout.
 
@@ -7,12 +6,34 @@
 .post {
   margin-bottom: 2rem;
 
-  li + li {
-    margin-top: 0.25rem;
-  }
+  // li + li {
+  //   margin-top: 0.25rem;
+  // }
 }
 
 // Blog post or page title
+
+.page-title,
+.post-title,
+.post-title a {
+  color: $red;
+}
+
+.whisperer a {
+  color: $red;
+}
+
+.linked a {
+  color: $amber;
+}
+
+.spon a,
+.sponsored a,
+.multiplex-header a,
+.adsense-header a,
+.spon-banner-header a {
+  color: $green;
+}
 
 .post-title a:hover {
   background-color: $red;
@@ -23,12 +44,6 @@ a.external-link {
   text-decoration: underline;
 
   // text-decoration-color: $light-amber;
-}
-
-.page-title,
-.post-title,
-.post-title a {
-  color: $red;
 }
 
 .page-title,
@@ -49,7 +64,8 @@ a.external-link {
   border-radius: 0;
   margin-bottom: 0.75rem;
   margin-top: -0.75rem;
-  filter: invert(59%) sepia(83%) saturate(675%) hue-rotate(352deg)
+  filter:
+    invert(59%) sepia(83%) saturate(675%) hue-rotate(352deg)
     brightness(100%) contrast(98%);
 }
 
@@ -66,18 +82,6 @@ a.external-link {
   filter: none;
 }
 
-//a.external-link {
-//  &:link,
-//  &:visited,
-//  &:active {
-//    text-decoration: underline;
-//  }
-//}
-
-// .external-link::after {
-//   content: "\00a0\2197";
-// }
-
 // Meta data line below post title
 .post-date,
 .label {
@@ -91,10 +95,6 @@ a.external-link {
 h4 .post-date {
   margin-bottom: 0;
 }
-
-//article p {
-//  text-align: justify;
-//}
 
 .cv {
   text-align: left;
@@ -125,22 +125,7 @@ h4 .post-date {
   li {
     small {
       font-size: 75%;
-
-      // color: #999;
     }
-
-    a {
-      // color: $gray-5;
-    }
-
-    //    a:hover {
-    //      color: #268bd2;
-    //      text-decoration: none;
-    //
-    //      small {
-    //        color: inherit;
-    //      }
-    //    }
   }
 }
 
@@ -179,10 +164,6 @@ h4 .post-date {
   height: 100%;
 }
 
-.whisperer a {
-  color: $red;
-}
-
 .whisperer-link {
   color: $red;
 }
@@ -192,10 +173,6 @@ h4 .post-date {
   color: black;
 }
 
-.linked a {
-  color: $amber;
-}
-
 .linked a:hover {
   background: $amber;
   color: black;
@@ -203,14 +180,6 @@ h4 .post-date {
 
 .linked blockquote {
   border-left: 0.25rem solid $amber;
-}
-
-.spon a,
-.sponsored a,
-.multiplex-header a,
-.adsense-header a,
-.spon-banner-header a {
-  color: $green;
 }
 
 .spon a:hover,
@@ -267,6 +236,11 @@ a.post-date {
   text-align: center;
   padding: 1.25rem;
 
+  img,
+  span {
+    display: none;
+  }
+
   span:first-child {
     padding-top: 0.5rem;
   }
@@ -276,11 +250,6 @@ a.post-date {
     padding-top: 1.25rem;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  img,
-  span {
-    display: none;
   }
 }
 
@@ -294,7 +263,6 @@ a.widget-link:hover {
   border: 1px solid white;
   margin-top: -1px;
   margin-left: -1px;
-  backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   color: white;
 
