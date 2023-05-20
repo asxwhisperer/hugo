@@ -3,14 +3,12 @@
 // Each post is wrapped in `.post` and is used on default and post layouts. Each
 // page is wrapped in `.page` and is only used on the page layout.
 
-
-
 .page,
 .post {
   margin-bottom: 2rem;
 
   li + li {
-    margin-top: .25rem;
+    margin-top: 0.25rem;
   }
 }
 
@@ -23,6 +21,7 @@
 
 a.external-link {
   text-decoration: underline;
+
   // text-decoration-color: $light-amber;
 }
 
@@ -31,14 +30,16 @@ a.external-link {
 .post-title a {
   color: $red;
 }
+
 .page-title,
 .post-title {
   margin-top: 0;
 }
 
-
-.page-title img, .page-title span {
+.page-title img,
+.page-title span {
   display: inline;
+
   // float: left;
 }
 
@@ -48,8 +49,8 @@ a.external-link {
   border-radius: 0;
   margin-bottom: 0.75rem;
   margin-top: -0.75rem;
-  filter: invert(59%) sepia(83%) saturate(675%) hue-rotate(352deg) brightness(100%) contrast(98%);
-  
+  filter: invert(59%) sepia(83%) saturate(675%) hue-rotate(352deg)
+    brightness(100%) contrast(98%);
 }
 
 @media only screen and (max-width: 768px) {
@@ -60,6 +61,7 @@ a.external-link {
 
 .title-logo:hover {
   background: $amber;
+
   // content: url("/content/logo.png");
   filter: none;
 }
@@ -77,7 +79,8 @@ a.external-link {
 // }
 
 // Meta data line below post title
-.post-date, .label {
+.post-date,
+.label {
   display: inline-block;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
@@ -99,10 +102,11 @@ h4 .post-date {
 
 // Related posts
 .related {
-//  padding-top: 2rem;
+  //  padding-top: 2rem;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-//  border-top: 1px solid #eee;
+
+  //  border-top: 1px solid #eee;
   border-bottom: 1px solid $grey-medium;
 }
 
@@ -113,6 +117,7 @@ h4 .post-date {
   width: $ad-big-width;
   margin-left: auto;
   margin-right: auto;
+
   h3 {
     margin-top: 0;
   }
@@ -120,21 +125,22 @@ h4 .post-date {
   li {
     small {
       font-size: 75%;
+
       // color: #999;
     }
-    
-      a {
-        // color: $gray-5;
-      }
 
-//    a:hover {
-//      color: #268bd2;
-//      text-decoration: none;
-//
-//      small {
-//        color: inherit;
-//      }
-//    }
+    a {
+      // color: $gray-5;
+    }
+
+    //    a:hover {
+    //      color: #268bd2;
+    //      text-decoration: none;
+    //
+    //      small {
+    //        color: inherit;
+    //      }
+    //    }
   }
 }
 
@@ -159,17 +165,18 @@ h4 .post-date {
 }
 
 .video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 }
+
 .video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .whisperer a {
@@ -198,25 +205,34 @@ h4 .post-date {
   border-left: 0.25rem solid $amber;
 }
 
-.spon a, .sponsored a, .multiplex-header a, .adsense-header a, .spon-banner-header a {
+.spon a,
+.sponsored a,
+.multiplex-header a,
+.adsense-header a,
+.spon-banner-header a {
   color: $green;
 }
 
-.spon a:hover, .multiplex-header a:hover, .adsense-header a:hover, .spon-banner-header a:hover {
+.spon a:hover,
+.multiplex-header a:hover,
+.adsense-header a:hover,
+.spon-banner-header a:hover {
   background: $green;
   color: black;
 }
 
 .spon blockquote {
-  border-left: .25rem solid $green;
+  border-left: 0.25rem solid $green;
 }
 
 a.post-date {
   color: $grey-medium;
 }
 
-.spon-link, .linked-link, .whisperer-link {
- text-decoration: underline;
+.spon-link,
+.linked-link,
+.whisperer-link {
+  text-decoration: underline;
 }
 
 .spon-link {
@@ -228,12 +244,15 @@ a.post-date {
   color: black;
 }
 
-.widget-caption, .widget-link, .post-widget-container {
+.widget-caption,
+.widget-link,
+.post-widget-container {
   width: $ad-big-width;
 }
 
 .post-widget-container {
   border: 1px solid $amber;
+
   // height: calc($ad-big-height * 3);
   height: 180px;
   margin-left: auto;
@@ -247,19 +266,20 @@ a.post-date {
   z-index: 2;
   text-align: center;
   padding: 1.25rem;
-  
+
   span:first-child {
     padding-top: 0.5rem;
   }
-  
+
   img {
     width: 80%;
     padding-top: 1.25rem;
     margin-left: auto;
     margin-right: auto;
   }
-  
-  img, span {
+
+  img,
+  span {
     display: none;
   }
 }
@@ -270,15 +290,16 @@ a.widget-link {
 }
 
 a.widget-link:hover {
-  background: rgba(2, 157, 6, 0.6);
+  background: rgba(2, 157, 6, 60%);
   border: 1px solid white;
   margin-top: -1px;
   margin-left: -1px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   color: white;
-  
-  img, span {
+
+  img,
+  span {
     display: block;
   }
 }
@@ -287,10 +308,10 @@ a.widget-link:hover {
   position: relative;
 }
 
-.multiplex:after {
+.multiplex::after {
   width: 100%;
   height: 100%;
-  content: '';
+  content: "";
   outline: black 1px solid;
   outline-offset: -1px;
   position: absolute;
@@ -330,27 +351,29 @@ a.widget-link:hover {
 }
 
 @media only screen and (max-width: 768px) {
-  .widget-caption, .widget-link, .post-widget-container {
+  .widget-caption,
+  .widget-link,
+  .post-widget-container {
     width: $ad-small-width;
   }
-  
-  .post-widget-container, .widget-link {
+
+  .post-widget-container,
+  .widget-link {
     // height: calc($ad-small-height * 3);
     height: 150px;
   }
-  
+
   .widget-link {
     padding: 0.75rem;
-    
+
     img {
-    padding-top: 1rem;
+      padding-top: 1rem;
     }
-    
+
     span:first-child {
       padding: 0;
     }
   }
-  
 }
 
 .post-content p:last-child a:last-child {

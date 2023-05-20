@@ -5,10 +5,10 @@
 .banner {
   height: 28px;
   background: black;
-  z-index: 100; 
-  // border-bottom: 1px solid $grey-medium; 
-  border-bottom: 1px solid #333; 
-  position: fixed; 
+  z-index: 100;
+  // border-bottom: 1px solid $grey-medium;
+  border-bottom: 1px solid #333;
+  position: fixed;
   top: $border-size;
   left: $border-size;
   width: calc(100% - 1.5rem);
@@ -40,7 +40,8 @@
   font-weight: 400;
 }
 
-.banner-link span, .banner-link img {
+.banner-link span,
+.banner-link img {
   // float: left;
   display: none;
   vertical-align: top;
@@ -54,16 +55,17 @@
 }
 
 .banner-link a:hover {
-  background: rgba(2, 157, 6, 0.6);
+  background: rgba(2, 157, 6, 60%);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   color: white;
-  span, img {
-    display: inline-block;  
+
+  span,
+  img {
+    display: inline-block;
   }
 }
 
-.banner-link a:hover:after {
+.banner-link a:hover::after {
   // content: "Save $30 on a Pro or Premium" url('content/tradingview.svg') "account";
 }
 
@@ -106,20 +108,22 @@
     height: auto;
     margin-top: 4rem;
   }
-  
+
   .adsense-responsive {
     max-height: 100px;
     width: 320px;
   }
-  
+
   .banner-link {
     font-size: 0.75rem;
+
     img {
       height: 1rem;
       margin-top: 0.3rem;
       padding-left: 0.25rem;
       padding-right: 0.25rem;
     }
+
     span {
       margin-top: 0.2rem;
     }
@@ -128,13 +132,13 @@
 
 .spon-banner {
   text-align: center;
-  width: 100%; 
-  height: 100%; 
-  border: 0; 
-  outline: 1px solid #029D06; 
-  padding:0; 
-  overflow: hidden; 
-  background-color: transparent; 
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 1px solid #029d06;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .banner p {
@@ -151,9 +155,9 @@
   // background: $red;
   // background: linear-gradient($light-red, $red);
   // border-top: 1px solid $grey-light;
-  
+
   margin-top: $border-size;
-//  display: block;
+  //  display: block;
 }
 
 // .masthead-title {
@@ -163,11 +167,11 @@
 //   height: 27px;
 // }
 
-.left, .right {
+.left,
+.right {
   height: 27px;
   min-height: 27px;
 }
-
 
 .right {
   border-right: 1px solid black;
@@ -180,6 +184,7 @@
     padding-left: 0.75rem;
     height: 27px;
   }
+
   a:hover {
     background: $amber;
     text-decoration: none;
@@ -195,9 +200,10 @@
   background: black;
 }
 
-#top-level, .date-nav {
-    text-align: right;
-    height: 27px;
+#top-level,
+.date-nav {
+  text-align: right;
+  height: 27px;
 }
 
 #top-level {
@@ -229,7 +235,8 @@
 //   color: black;
 // }
 
-#top-level ul, .date-nav {
+#top-level ul,
+.date-nav {
   // max-width: 45rem;
   max-width: 728px;
   margin-left: auto;
@@ -237,20 +244,20 @@
 }
 
 #top-level ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    overflow: hidden;
-    font-size: 0;
-    // max-width: 45rem;
-    max-width: 728px;
-    margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient($light-red, $red);
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+  font-size: 0;
+  // max-width: 45rem;
+  max-width: 728px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient($light-red, $red);
 }
 
 #top-level ul li {
-    // display: inline;
+  // display: inline;
 }
 
 #top-level ul li a {
@@ -261,23 +268,25 @@
 }
 
 .left {
-    float: left;
-    background: $amber;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    a {
-      color: black;
-      vertical-align: middle;
-      padding-left: 1rem;
-      padding-right: 1rem;      
-    }
+  float: left;
+  background: $amber;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
 
-//    width: 49%;
-//    font-weight: bold;
-//    color: $gray-4;
+  a {
+    color: black;
+    vertical-align: middle;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  //    width: 49%;
+  //    font-weight: bold;
+  //    color: $gray-4;
 }
 
-.left img, .left span {
+.left img,
+.left span {
   display: inline;
   float: left;
 }
@@ -295,34 +304,33 @@
     text-align: left;
     border: 0;
   }
-  
+
   .right a {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  
+
   #top-level ul li.right a {
     font-size: 1rem;
     padding-top: 0.15rem;
-    
   }
-  
+
   #top-level ul {
     background: linear-gradient($light-red 50%, $red);
   }
-  
+
   #top-level {
     text-align: center;
   }
-  
+
   // .right:last-child {
   //   border: 0;
   // }
-  
+
   .masthead {
     margin-bottom: calc(2rem + 27px);
   }
-  
+
   .date-nav time {
     padding-left: 1rem;
     vertical-align: baseline;
@@ -332,6 +340,7 @@
 .left a:hover {
   background: $light-amber;
   color: white;
+
   img {
     // content: url("/content/logo-white.png");
     filter: invert(100%) sepia(100%) saturate(22%) hue-rotate(344deg) brightness(105%) contrast(108%);
