@@ -6,6 +6,7 @@
 <main>
 
   {{ partial "title" . }}
+  <!-- Starts <article> -->
 
     <br><br>
     <div class="post-content">
@@ -70,15 +71,17 @@
       </a>
     </p>
 
-    </article>
+  </article>
 
-    <hr>
-
-    {{ partialCached "recent-posts.html" . }}
-
-    {{ partialCached "sponsored-by.html" . }}
   <hr>
+
+  {{ partialCached "recent-posts.html" . }}
+  {{ partialCached "sponsored-by.html" . }}
+
+  <hr>
+
   {{ partialCached "subscribe.html" . }}
+
   <hr>
 </main>
 {{ end }}
