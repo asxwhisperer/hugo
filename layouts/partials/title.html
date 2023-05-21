@@ -1,3 +1,6 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Monday, 2 January 2006" }}
+
 {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") 10 }}
 {{ range $index, $page := $paginator.Pages }}
 
