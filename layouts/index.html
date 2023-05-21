@@ -17,40 +17,7 @@
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") 10 }}
     {{ range $index, $page := $paginator.Pages }}
 
-      {{ $category := "whisperer" }}
-      {{ $categoryAbbr := "WHISP" }}
-
-      {{ if in .Params.categories "linked" }}
-        {{ $category = "linked" }}
-        {{ $categoryAbbr = "LINK" }}
-      {{ else if in .Params.categories "sponsored" }}
-        {{ $category = "sponsored" }}
-        {{ $categoryAbbr = "SPON" }}
-      {{ end }}
-
-      <article class="post {{ $category }}">
-        <h1 class="post-title">
-          <a
-            href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}"
-            class="{{ $category }}-link"
-            target="_blank"
-          >&lt;{{ $categoryAbbr }}&gt;</a>
-          <a
-            href="{{ .RelPermalink }}"
-            class="title-link"
-          >
-            {{ .Title }}
-          </a>
-        </h1>
-
-        <a
-          href="{{ .RelPermalink }}"
-          class="post-date"
-        >
-          <time datetime="{{ $dateTime }}">
-            {{ .PublishDate.Format $dateFormat }}
-          </time>
-        </a>
+      {{ partial "title" . }}
 
         <div class="post-content">
           {{ .Content }}
