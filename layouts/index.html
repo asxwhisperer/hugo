@@ -8,9 +8,7 @@
         <a href="/">&lt;{{ .Title }}&gt;</a>
       </h1>
     </center>
-    <p>The Director's Commentary of the ASX</p>
-    <p>I work in finance, my job requires me to read all the ASX announcements that come out each day. I pick out the most interesting, the most talked about, and the most impactful announcements that move the market.</p>
-    <p>I stay updated, so you don't have to.</p>
+    <p>{{ .Site.Params.itunes_description }}</p>
     <hr>
       {{ partialCached "subscribe.html" . }}
     <hr>
@@ -44,7 +42,9 @@
           href="{{ .RelPermalink }}"
           class="post-date"
         >
-          <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}
+          <time datetime="{{ $dateTime }}">
+            {{ .PublishDate.Format $dateFormat }}
+          </time>
         </a>
         <div class="post-content">
           {{ .Content }}
