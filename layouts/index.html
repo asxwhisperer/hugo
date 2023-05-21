@@ -35,7 +35,12 @@
             class="{{ $category }}-link"
             target="_blank"
           >&lt;{{ $categoryAbbr }}&gt;</a>
-          <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
+          <a
+            href="{{ .RelPermalink }}"
+            class="title-link"
+          >
+            {{ .Title }}
+          </a>
         </h1>
 
         <a
@@ -46,6 +51,7 @@
             {{ .PublishDate.Format $dateFormat }}
           </time>
         </a>
+
         <div class="post-content">
           {{ .Content }}
         </div>
