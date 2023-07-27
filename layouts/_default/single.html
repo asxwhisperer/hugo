@@ -11,9 +11,9 @@
     <h1 class="post-title">
       <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="spon-link" target="_blank">&lt;SPON&gt;</a>
   {{ else }}
-    <article class="post whisperer">
+    <article class="post linked">
     <h1 class="post-title">
-      <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="whisperer link" target="_blank">&lt;WHISP&gt;</a>
+      <a href="{{ replaceRE `[\s\S]*\[.*\]\((https?://\S+)\)[\s\S]*` `$1` .RawContent }}" class="linked-link" target="_blank">&lt;WIRE&gt;</a>
   {{ end }}
       <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
     </h1>
@@ -22,18 +22,18 @@
     <div class="post-content">
       {{ .Content }}
     </div>
-            
+
     <hr>
       <!-- TradingView Widget BEGIN -->
       <div class="post-widget-container">
         <a href="https://www.tradingview.com/gopro/?share_your_love=iam23409" target="_blank" rel="noopener noreferrer" onclick="fathom.trackGoal('QSOOTBDP', 0);" class="widget-link"><span>View full chart on</span><img src="/content/tradingview.svg"><span>Save $30 on a Pro or Premium TradingView account</span></a>
-        
+
       {{ $widgetTicker := "ASX:XJO" }}
       {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
       {{  if eq (strings.RuneCount $ticker) 7 }}
         {{ $widgetTicker = $ticker }}
       {{ end }}
-        
+
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
