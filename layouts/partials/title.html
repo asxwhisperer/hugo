@@ -1,8 +1,8 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Monday, 2 January 2006" }}
 
-{{ $category := "whisperer" }}
-{{ $categoryAbbr := "WHISP" }}
+{{ $category := "linked" }}
+{{ $categoryAbbr := "WIRE" }}
 
 {{ if in .Params.categories "linked" }}
   {{ $category = "linked" }}
