@@ -36,7 +36,7 @@
     {{ end }} -->
     {{ $category := .Params.categories }}
     {{ if $category }}
-      {{ $widgetTicker = print "ASX:" string $category }}
+      {{ $widgetTicker = print "ASX:" index $category 0 }}
     {{ end }}
 
     <div class="tradingview-widget-container">
