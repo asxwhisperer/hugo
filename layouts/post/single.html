@@ -35,7 +35,7 @@
       {{ $widgetTicker = $ticker }}
     {{ end }} -->
     {{ $category := .Params.categories }}
-    {{ if eq (strings.RuneCount $category) 3 }}
+    {{ if $category }}
       {{ $widgetTicker = print "ASX:" $category }}
     {{ end }}
 
