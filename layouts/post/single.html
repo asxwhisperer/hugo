@@ -34,9 +34,9 @@
     {{  if eq (strings.RuneCount $ticker) 7 }}
       {{ $widgetTicker = $ticker }}
     {{ end }} -->
-    {{ $category := index .Params.categories 0 }}
+    {{ $category := .Params.categories }}
     {{ if $category }}
-      {{ $widgetTicker = print "ASX:" $category }}
+      {{ $widgetTicker = print "ASX:" (index $category 0) }}
     {{ end }}
 
     <div class="tradingview-widget-container">
