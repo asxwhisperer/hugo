@@ -30,9 +30,13 @@
       </a>
 
     {{ $widgetTicker := "ASX:XJO" }}
-    {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
+    <!-- {{ $ticker := replaceRE `[\s\S]*\(([^)]*:[^)]*)\)[\s\S]*` `$1` .Title }}
     {{  if eq (strings.RuneCount $ticker) 7 }}
       {{ $widgetTicker = $ticker }}
+    {{ end }} -->
+    {{ $category := .Params.categories }}
+    {{ if eq (strings.RuneCount $category) 3 }}
+      {{ $widgetTicker = print "ASX:" $category }}
     {{ end }}
 
     <div class="tradingview-widget-container">
