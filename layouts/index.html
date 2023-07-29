@@ -40,16 +40,16 @@
             <a class="spon-link" href="#">&lt;AD&gt;</a>
           </h1> -->
           <div class="adsense-container">
-            { partial "adsense.html" . }}
+            {{ partial "adsense.html" . }}
           </div>
         </article>
         <hr>
       {{ end }}
       {{ if or (eq $index 2) (eq $index 7) }}
-    <!-- <script
+        <script
           src="https://shoutouts.lol/embed/6RFCLB-sGdKMPnkppGms.js?width=936?i={{ $index }}"
           defer
-        ></script> -->
+        ></script>
         <hr>
       {{ end }}
     {{ end }}
